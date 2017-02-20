@@ -6,11 +6,10 @@ library(rvest)
 # Load data and filter for the PDFs that we want to download
 regs <- read.csv("DOCKET_EPA-HQ-OAR-2013-0602.csv", skip = 5, header = TRUE)
 regs <- regs %>% filter(Document.Type == "PUBLIC SUBMISSIONS")
-# regs <- regs %>% filter(DocumentType == "PUBLIC SUBMISSIOSN") # uncomment to download all of the random comments
 
 pdflist <- c()
 
-for(i in 1:nrow(regs)) {
+for(i in 1) {
   print(i)
   
   # designate url for current pdf to download
@@ -51,14 +50,14 @@ for(i in 1:nrow(regs)) {
 write.csv(pdflist, "pdf_list.csv")
 
 # Make directory to store pdfs
-if (file.exists("regulations/")){
+if (file.exists("comments/")){
   print("Problem:  that file exists.  Do you want to overwrite the pdfs you've already downloaded?")
 } else {
-  dir.create("regulations/")
+  dir.create("comments/")
 }
 
 # Download pdf files to that directory
-for(i in 1:length(pdflist[grep("excel", pdflist)])) {
+for(i in 1:length(pdflist)) {
   
   
   if(grepl("pdf", pdflist[i]) == TRUE) {

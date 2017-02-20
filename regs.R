@@ -58,7 +58,7 @@ if (file.exists("regulations/")){
 }
 
 # Download pdf files to that directory
-for(i in 1172:length(pdflist)) {
+for(i in 1:length(pdflist)) {
   
   
   if(grepl("pdf", pdflist[i]) == TRUE) {
