@@ -60,6 +60,7 @@ if (file.exists("comments/")){
 for(i in 1:length(pdflist)) {
   
   
+  
   if(grepl("pdf", pdflist[i]) == TRUE) {
     outfile <- strsplit(pdflist[i], "EPA")[[1]][2]
     outfile <- paste("EPA", strsplit(outfile, "&")[[1]][1], ".pdf", sep="")
